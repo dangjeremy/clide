@@ -1,0 +1,1 @@
+This folder will contain any models (most likely in the form of JuPyter/Colab Notebooks) that we run on the data!
