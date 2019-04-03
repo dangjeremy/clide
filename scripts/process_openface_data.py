@@ -26,10 +26,11 @@ for file_count, file_path in enumerate(glob.glob(IN_FILE_DIR + "*.csv")):
     df.dropna(subset=["question"], inplace=True)
     # Loop over each question number in the dataframe and append to list of dfs
     for question_number in df["question"].unique():
+        print("Processing question",question_number,"for person",file_count)
         list_of_dfs.append(df[df["question"] == question_number])
 
 print("Number of interactions processed:",len(list_of_dfs))
 
 # Pickle the list of dfs
 with open(OUT_FILE_DIR + "list_of_dfs.pickle", 'wb') as f:
-    pickle.dump(list_of_dfs, f)
+    pickle.dump(list_of_dfs, f, protocol=pickle.HIGHEST_PROTOCOL)
